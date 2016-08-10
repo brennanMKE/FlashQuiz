@@ -23,9 +23,9 @@
 
 @property (strong, nonatomic) NSMutableDictionary *tasks;
 
-@property (weak, nonatomic) IBOutlet UILabel *promptLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *fullImageView;
-@property (weak, nonatomic) IBOutlet UIButton *submitButton;
+@property (weak, nonatomic, nullable) IBOutlet UILabel *promptLabel;
+@property (weak, nonatomic, nullable) IBOutlet UIImageView *fullImageView;
+@property (weak, nonatomic, nullable) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic, nullable) IBOutlet UICollectionView *collectionView;
 
 @end
@@ -59,7 +59,7 @@
 #pragma mark - User Actions
 #pragma mark -
 
-- (IBAction)submitButtonTapped:(id)sender {
+- (IBAction)submitButtonTapped:(nullable id)sender {
     NSArray<NSIndexPath *> *indexPaths = [self.collectionView indexPathsForSelectedItems];
     if (indexPaths.count) {
         NSIndexPath *indexPath = indexPaths.firstObject;

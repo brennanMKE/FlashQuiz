@@ -23,23 +23,25 @@
 #pragma mark - Public
 #pragma mark -
 
-+ (nullable NSArray<Question *>*)questionsWithFileURL:(nonnull NSURL *)fileURL {
++ (nullable NSArray<Question *>*)questionsWithFileURL:(nullable NSURL *)fileURL {
     NSArray<Question *> *questions = nil;
 
-    NSString *filePath = fileURL.absoluteString;
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if ([fileManager isReadableFileAtPath:filePath]) {
-        NSData *data = [fileManager contentsAtPath:filePath];
-        NSError *error = nil;
-        id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-        if (error) {
-            // TODO: handle the error by logging to service
-            NSLog(@"Error: %@", error.localizedDescription);
-        }
-        else {
-            if ([json isKindOfClass:[NSDictionary class]]) {
-                NSDictionary *dictionary = (NSDictionary *)json;
-                questions = [self readFromDictionary:dictionary];
+    if (fileURL) {
+        NSString *filePath = fileURL.absoluteString;
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        if ([fileManager isReadableFileAtPath:filePath]) {
+            NSData *data = [fileManager contentsAtPath:filePath];
+            NSError *error = nil;
+            id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            if (error) {
+                // TODO: handle the error by logging to service
+                NSLog(@"Error: %@", error.localizedDescription);
+            }
+            else {
+                if ([json isKindOfClass:[NSDictionary class]]) {
+                    NSDictionary *dictionary = (NSDictionary *)json;
+                    questions = [self readFromDictionary:dictionary];
+                }
             }
         }
     }

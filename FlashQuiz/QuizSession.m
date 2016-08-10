@@ -23,9 +23,15 @@
 
 @end
 
+@interface QuizSession<__covariant ObjectType> (Shuffling)
+
+//- (nonnull NSArray<ObjectType> *)shuffleArray:(nonnull NSArray<ObjectType> *)array;
+
+@end
+
 @implementation QuizSession
 
-+ (nonnull instancetype)quizSessionWithQuestions:(nonnull NSArray<Question *>*)questions {
++ (nullable instancetype)quizSessionWithQuestions:(nonnull NSArray<Question *>*)questions {
     QuizSession *quizSession = nil;
 
     if (questions.count) {
@@ -143,7 +149,7 @@
     }
 }
 
-- (nonnull NSArray *)shuffleArray:(nonnull NSArray *)array {
+- (nonnull NSArray<id> *)shuffleArray:(nonnull NSArray<id> *)array {
     NSMutableArray *temp = [NSMutableArray arrayWithArray:array];
 
     for (NSUInteger i = array.count; i > 1; i--) {
@@ -167,7 +173,7 @@
     return result;
 }
 
-- (NSString *)uuidString {
+- (nonnull NSString *)uuidString {
     // Returns a UUID
     CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
     NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);

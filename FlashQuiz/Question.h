@@ -13,7 +13,7 @@
 @property (readonly, copy, nonatomic, nonnull) NSString *prompt;
 @property (readonly, strong, nonatomic, nonnull) NSArray<NSString *> *answers;
 
-+ (nullable NSArray<Question *>*)questionsWithFileURL:(nonnull NSURL *)fileURL;
++ (nullable NSArray<Question *>*)questionsWithFileURL:(nullable NSURL *)fileURL;
 
 + (nullable instancetype)questionWithPrompt:(nonnull NSString * )prompt andAnswers:(nonnull NSArray<NSString *>* )answers;
 

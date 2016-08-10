@@ -1,0 +1,177 @@
+//
+//  QuizSessionTests.swift
+//  FlashQuiz
+//
+//  Created by Brennan Stehling on 7/17/16.
+//  Copyright © 2016 SmallSharpTools. All rights reserved.
+//
+
+import XCTest
+
+class QuizSessionTests: XCTestCase {
+
+    override func setUp() {
+        super.setUp()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func testLoadQuizSession() {
+        let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL())
+        XCTAssertNotNil(questions, "Questions must be defined")
+        if let questions = questions {
+            let quizSession = QuizSession(questions: questions)
+            XCTAssertNotNil(quizSession, "Valid value is expected")
+        }
+        else {
+            XCTFail()
+        }
+    }
+
+    // How are generics going to work between Objective-C and Swift?
+
+    // Note: Lightweight Generics in Objective-C are not available to Swift.
+    //
+    // Objective-C declarations of NSArray, NSSet and NSDictionary types using 
+    // lightweight generic parameterization are imported by Swift with 
+    // information about the type of their contents preserved.
+    // See: https://forums.developer.apple.com/thread/7394
+
+    func testShufflingArray() {
+        let numbers: [Int] = [1, 2, 3, 4, 5]
+        let quizSession = QuizSession()
+        if let randomNumbers = quizSession.shuffleArray(numbers) as? [Int] {
+            // Note: Testing randomness is not 100% accurate since the result could be
+            // in the same order but with enough values that will be very unlikely.
+
+            XCTAssertTrue(numbers.count == randomNumbers.count, "Counts should match")
+
+            var notMatched: Bool = false
+            for (index, original) in numbers.enumerate() {
+                let random = randomNumbers[index]
+                if original != random {
+                    notMatched = true
+                    break
+                }
+            }
+
+            XCTAssertTrue(notMatched, "Random array should not match original array")
+        }
+        else {
+            XCTFail()
+        }
+    }
+
+    func testShuffleQuestions() {
+        if let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
+            let quizSession = QuizSession(questions: questions){
+
+            XCTAssertNotNil(questions, "Valid value is expected")
+            XCTAssertNotNil(quizSession, "Valid value is expected")
+
+            quizSession.shuffleQuestions()
+
+            var notMatched: Bool = false
+            for (index, question) in quizSession.questions.enumerate() {
+                let random = questions[index]
+                if question != random {
+                    notMatched = true
+                    break
+                }
+            }
+
+            if AppConfiguration.isShuffleEnabled() {
+                XCTAssertTrue(notMatched, "Random array should not match original array")
+            }
+            else {
+                XCTAssertFalse(notMatched, "Random array should not match original array")
+            }
+        }
+        else {
+            XCTFail()
+        }
+    }
+
+    func testQuestionForPrompt() {
+        if let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
+            let quizSession = QuizSession(questions: questions) {
+
+            XCTAssertNotNil(questions, "Valid value is expected")
+            XCTAssertNotNil(quizSession, "Valid value is expected")
+
+            for (_, question) in questions.enumerate() {
+                let otherQuestion = quizSession.questionForPrompt(question.prompt)
+                XCTAssertTrue(question.prompt == otherQuestion?.prompt)
+            }
+        }
+    }
+
+    func testUUID() {
+        let quizSession = QuizSession()
+        XCTAssertNotNil(quizSession, "Valid value is expected")
+
+        let uuidString1 = quizSession.uuidString()
+        let uuidString2 = quizSession.uuidString()
+
+        XCTAssertTrue(uuidString1.characters.count > 0, "String is required")
+        XCTAssertTrue(uuidString2.characters.count > 0, "String is required")
+        XCTAssertFalse(uuidString1 == uuidString2, "Strings must not be equal")
+    }
+
+    func testShufflingPerformance() {
+        self.measureBlock {
+            if let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
+                let quizSession = QuizSession(questions: questions) {
+                XCTAssertNotNil(questions, "Valid value is expected")
+                XCTAssertNotNil(quizSession, "Valid value is expected")
+
+                quizSession.shuffleQuestions()
+            }
+            else {
+                XCTFail()
+            }
+        }
+    }
+
+    func testQuizSessionAnsweringQuestions() {
+        self.measureBlock {
+            if let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
+                let quizSession = QuizSession(questions: questions) {
+                XCTAssertNotNil(questions, "Valid value is expected")
+                XCTAssertNotNil(quizSession, "Valid value is expected")
+
+                quizSession.startNewSession()
+
+                var currentQuestion = quizSession.currentQuestion
+                while currentQuestion != nil {
+                    if let answer = currentQuestion?.answers.first {
+                        quizSession.submitAnswer(answer)
+                        currentQuestion = quizSession.currentQuestion
+                    }
+                    else {
+                        XCTFail()
+                        break
+                    }
+                }
+
+                XCTAssertTrue(quizSession.isSessionCompleted, "Session should be completed")
+
+                // Now store the session to the Documents folder
+                quizSession.completeCurrentSession()
+
+                quizSession.startNewSession()
+
+                XCTAssertTrue(quizSession.answers.count == 0, "Answers count should be zero")
+
+                XCTAssertNotNil(questions, "Valid value is expected")
+                XCTAssertNotNil(quizSession, "Valid value is expected")
+            }
+            else {
+                XCTFail()
+            }
+        }
+    }
+
+}

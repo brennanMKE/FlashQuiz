@@ -41,7 +41,11 @@
 }
 
 - (void)testDebugging {
-    XCTAssertNotNil(@([AppConfiguration isDebuggingEnabled]));
+    NSString *enableDebugging = [[NSProcessInfo processInfo] environment][@"EnableDebugging"];
+    BOOL rawIsDebugging = [enableDebugging boolValue];
+    BOOL isDebugging = [AppConfiguration isDebuggingEnabled];
+
+    XCTAssertEqual(rawIsDebugging, isDebugging);
 }
 
 - (void)testIsUnitTesting {

@@ -10,18 +10,20 @@
 
 #import "Question.h"
 
-@interface QuizSession : NSObject
+@interface QuizSession<__covariant ObjectType> : NSObject
 
 @property (readonly, copy, nonatomic, nonnull) NSArray<Question *> *questions;
 @property (readonly, nonatomic, nullable) Question *currentQuestion;
 @property (readonly, strong, nonatomic, nonnull) NSMutableArray<NSString *> *answers;
 @property (readonly, nonatomic) BOOL isSessionCompleted;
 
-+ (nonnull instancetype)quizSessionWithQuestions:(nonnull NSArray<Question *>*)questions;
++ (nullable instancetype)quizSessionWithQuestions:(nonnull NSArray<Question *>*)questions;
 
 - (void)startNewSession;
 - (void)submitAnswer:(nonnull NSString *)answer;
 - (NSUInteger)countCorrectAnswers;
 - (void)completeCurrentSession;
+
+- (nonnull NSArray<ObjectType> *)shuffleArray:(nonnull NSArray<ObjectType> *)array;
 
 @end
