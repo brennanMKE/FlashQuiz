@@ -25,7 +25,7 @@
 
 @interface QuizSession<__covariant ObjectType> (Shuffling)
 
-//- (nonnull NSArray<ObjectType> *)shuffleArray:(nonnull NSArray<ObjectType> *)array;
+- (nonnull NSArray<ObjectType> *)shuffleArray:(nonnull NSArray<ObjectType> *)array;
 
 @end
 

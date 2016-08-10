@@ -24,6 +24,4 @@
 - (NSUInteger)countCorrectAnswers;
 - (void)completeCurrentSession;
 
-- (nonnull NSArray<ObjectType> *)shuffleArray:(nonnull NSArray<ObjectType> *)array;
-
 @end
