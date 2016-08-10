@@ -56,7 +56,10 @@ CG_INLINE UINavigationController *GetNavigationController() {
         [vc performSegueWithIdentifier:@"pushQuizSession" sender:vc];
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [expectation fulfill];
+            [nc popViewControllerAnimated:NO];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [expectation fulfill];
+            });
         });
     });
 

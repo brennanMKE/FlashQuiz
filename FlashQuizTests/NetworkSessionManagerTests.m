@@ -52,7 +52,6 @@
     }];
 }
 
-
 - (void)testFetchingImage {
     NSURL *imageURL = [NSURL URLWithString:@"https://sst-robots.s3.amazonaws.com/robot.jpg"];
     NetworkSessionManager *manager = [NetworkSessionManager new];

@@ -11,6 +11,6 @@
 @interface AnswerCell : UICollectionViewCell
 
 - (void)startLoadingImage;
-- (void)finishLoadingWithImage:(nonnull UIImage *)image;
+- (void)finishLoadingWithImage:(nullable UIImage *)image;
 
 @end

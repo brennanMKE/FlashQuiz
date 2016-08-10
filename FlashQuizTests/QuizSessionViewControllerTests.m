@@ -117,6 +117,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
         Question *question = qs.quizSession.currentQuestion;
         Question *lastQuestion = qs.quizSession.questions.lastObject;
 
+        // submit all answers except the last one
         while (question && ![question isEqual:lastQuestion]) {
             [qs submitAnswer:question.answers.firstObject];
             question = qs.quizSession.currentQuestion;

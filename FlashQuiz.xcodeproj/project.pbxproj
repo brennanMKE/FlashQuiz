@@ -29,10 +29,26 @@
 		26130BF51D37105700D0AFC2 /* StartQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BEB1D37105700D0AFC2 /* StartQuizViewController.m */; };
 		26130BF61D37105700D0AFC2 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BED1D37105700D0AFC2 /* Question.m */; };
 		26130BF71D37105700D0AFC2 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 26130BEF1D37105700D0AFC2 /* questions.json */; };
+		26130C481D3C892600D0AFC2 /* AnswerCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C471D3C892600D0AFC2 /* AnswerCellTests.swift */; };
+		26130C4A1D3C895D00D0AFC2 /* AppConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C491D3C895D00D0AFC2 /* AppConfigurationTests.swift */; };
+		26130C4C1D3C896E00D0AFC2 /* LogicalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C4B1D3C896E00D0AFC2 /* LogicalTests.swift */; };
+		26130C4E1D3C897C00D0AFC2 /* NetworkSessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C4D1D3C897C00D0AFC2 /* NetworkSessionManagerTests.swift */; };
+		26130C501D3C898F00D0AFC2 /* QuestionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C4F1D3C898F00D0AFC2 /* QuestionsTests.swift */; };
+		26130C521D3C899C00D0AFC2 /* QuizSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C511D3C899C00D0AFC2 /* QuizSessionTests.swift */; };
+		26130C541D3C89A800D0AFC2 /* QuizSessionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C531D3C89A800D0AFC2 /* QuizSessionViewControllerTests.swift */; };
+		26130C561D3C89B600D0AFC2 /* StartQuizViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C551D3C89B600D0AFC2 /* StartQuizViewControllerTests.swift */; };
+		26755CAD1D52A4D300EFCAA8 /* invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 26130BD11D37100B00D0AFC2 /* invalid.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		26130BC11D370F3100D0AFC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26130B9F1D370F3100D0AFC2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26130BA61D370F3100D0AFC2;
+			remoteInfo = FlashQuiz;
+		};
+		26130C401D3C88DF00D0AFC2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 26130B9F1D370F3100D0AFC2 /* Project object */;
 			proxyType = 1;
@@ -76,6 +92,18 @@
 		26130BED1D37105700D0AFC2 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		26130BEE1D37105700D0AFC2 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		26130BEF1D37105700D0AFC2 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
+		26130C3B1D3C88DF00D0AFC2 /* FlashQuizSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashQuizSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26130C3F1D3C88DF00D0AFC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26130C471D3C892600D0AFC2 /* AnswerCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerCellTests.swift; sourceTree = "<group>"; };
+		26130C491D3C895D00D0AFC2 /* AppConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfigurationTests.swift; sourceTree = "<group>"; };
+		26130C4B1D3C896E00D0AFC2 /* LogicalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicalTests.swift; sourceTree = "<group>"; };
+		26130C4D1D3C897C00D0AFC2 /* NetworkSessionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSessionManagerTests.swift; sourceTree = "<group>"; };
+		26130C4F1D3C898F00D0AFC2 /* QuestionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsTests.swift; sourceTree = "<group>"; };
+		26130C511D3C899C00D0AFC2 /* QuizSessionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizSessionTests.swift; sourceTree = "<group>"; };
+		26130C531D3C89A800D0AFC2 /* QuizSessionViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizSessionViewControllerTests.swift; sourceTree = "<group>"; };
+		26130C551D3C89B600D0AFC2 /* StartQuizViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartQuizViewControllerTests.swift; sourceTree = "<group>"; };
+		26130C571D3C8AA800D0AFC2 /* FlashQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlashQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
+		26130C5A1D3C977A00D0AFC2 /* FlashQuizSwiftTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlashQuizSwiftTests-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +121,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26130C381D3C88DF00D0AFC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -101,6 +136,7 @@
 			children = (
 				26130BA91D370F3100D0AFC2 /* FlashQuiz */,
 				26130BC31D370F3100D0AFC2 /* FlashQuizTests */,
+				26130C3C1D3C88DF00D0AFC2 /* FlashQuizSwiftTests */,
 				26130BA81D370F3100D0AFC2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,6 +146,7 @@
 			children = (
 				26130BA71D370F3100D0AFC2 /* FlashQuiz.app */,
 				26130BC01D370F3100D0AFC2 /* FlashQuizTests.xctest */,
+				26130C3B1D3C88DF00D0AFC2 /* FlashQuizSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +169,7 @@
 			children = (
 				26130BAB1D370F3100D0AFC2 /* main.m */,
 				26130BBB1D370F3100D0AFC2 /* Info.plist */,
+				26130C571D3C8AA800D0AFC2 /* FlashQuiz-Bridging-Header.h */,
 				26130BEF1D37105700D0AFC2 /* questions.json */,
 			);
 			name = "Supporting Files";
@@ -140,16 +178,16 @@
 		26130BC31D370F3100D0AFC2 /* FlashQuizTests */ = {
 			isa = PBXGroup;
 			children = (
+				26130BC61D370F3100D0AFC2 /* Info.plist */,
+				26130BD11D37100B00D0AFC2 /* invalid.json */,
 				26130BCF1D37100B00D0AFC2 /* AnswerCellTests.m */,
 				26130BD01D37100B00D0AFC2 /* AppConfigurationTests.m */,
-				26130BD11D37100B00D0AFC2 /* invalid.json */,
 				26130BD21D37100B00D0AFC2 /* LogicalTests.m */,
 				26130BD31D37100B00D0AFC2 /* NetworkSessionManagerTests.m */,
 				26130BD41D37100B00D0AFC2 /* QuestionsTests.m */,
 				26130BD51D37100B00D0AFC2 /* QuizSessionTests.m */,
 				26130BD61D37100B00D0AFC2 /* QuizSessionViewControllerTests.m */,
 				26130BD71D37100B00D0AFC2 /* StartQuizViewControllerTests.m */,
-				26130BC61D370F3100D0AFC2 /* Info.plist */,
 			);
 			path = FlashQuizTests;
 			sourceTree = "<group>";
@@ -208,6 +246,23 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		26130C3C1D3C88DF00D0AFC2 /* FlashQuizSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				26130C3F1D3C88DF00D0AFC2 /* Info.plist */,
+				26130C5A1D3C977A00D0AFC2 /* FlashQuizSwiftTests-Bridging-Header.h */,
+				26130C471D3C892600D0AFC2 /* AnswerCellTests.swift */,
+				26130C491D3C895D00D0AFC2 /* AppConfigurationTests.swift */,
+				26130C4B1D3C896E00D0AFC2 /* LogicalTests.swift */,
+				26130C4D1D3C897C00D0AFC2 /* NetworkSessionManagerTests.swift */,
+				26130C4F1D3C898F00D0AFC2 /* QuestionsTests.swift */,
+				26130C511D3C899C00D0AFC2 /* QuizSessionTests.swift */,
+				26130C531D3C89A800D0AFC2 /* QuizSessionViewControllerTests.swift */,
+				26130C551D3C89B600D0AFC2 /* StartQuizViewControllerTests.swift */,
+			);
+			path = FlashQuizSwiftTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,12 +301,31 @@
 			productReference = 26130BC01D370F3100D0AFC2 /* FlashQuizTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		26130C3A1D3C88DF00D0AFC2 /* FlashQuizSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26130C421D3C88DF00D0AFC2 /* Build configuration list for PBXNativeTarget "FlashQuizSwiftTests" */;
+			buildPhases = (
+				26130C371D3C88DF00D0AFC2 /* Sources */,
+				26130C381D3C88DF00D0AFC2 /* Frameworks */,
+				26130C391D3C88DF00D0AFC2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26130C411D3C88DF00D0AFC2 /* PBXTargetDependency */,
+			);
+			name = FlashQuizSwiftTests;
+			productName = FlashQuizSwiftTests;
+			productReference = 26130C3B1D3C88DF00D0AFC2 /* FlashQuizSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		26130B9F1D370F3100D0AFC2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = SmallSharpTools;
 				TargetAttributes = {
@@ -259,6 +333,10 @@
 						CreatedOnToolsVersion = 7.3.1;
 					};
 					26130BBF1D370F3100D0AFC2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 26130BA61D370F3100D0AFC2;
+					};
+					26130C3A1D3C88DF00D0AFC2 = {
 						CreatedOnToolsVersion = 7.3.1;
 						TestTargetID = 26130BA61D370F3100D0AFC2;
 					};
@@ -279,6 +357,7 @@
 			targets = (
 				26130BA61D370F3100D0AFC2 /* FlashQuiz */,
 				26130BBF1D370F3100D0AFC2 /* FlashQuizTests */,
+				26130C3A1D3C88DF00D0AFC2 /* FlashQuizSwiftTests */,
 			);
 		};
 /* End PBXProject section */
@@ -300,6 +379,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				26130BDA1D37100B00D0AFC2 /* invalid.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26130C391D3C88DF00D0AFC2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26755CAD1D52A4D300EFCAA8 /* invalid.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +424,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26130C371D3C88DF00D0AFC2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26130C4A1D3C895D00D0AFC2 /* AppConfigurationTests.swift in Sources */,
+				26130C541D3C89A800D0AFC2 /* QuizSessionViewControllerTests.swift in Sources */,
+				26130C4C1D3C896E00D0AFC2 /* LogicalTests.swift in Sources */,
+				26130C4E1D3C897C00D0AFC2 /* NetworkSessionManagerTests.swift in Sources */,
+				26130C521D3C899C00D0AFC2 /* QuizSessionTests.swift in Sources */,
+				26130C481D3C892600D0AFC2 /* AnswerCellTests.swift in Sources */,
+				26130C561D3C89B600D0AFC2 /* StartQuizViewControllerTests.swift in Sources */,
+				26130C501D3C898F00D0AFC2 /* QuestionsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -344,6 +446,11 @@
 			isa = PBXTargetDependency;
 			target = 26130BA61D370F3100D0AFC2 /* FlashQuiz */;
 			targetProxy = 26130BC11D370F3100D0AFC2 /* PBXContainerItemProxy */;
+		};
+		26130C411D3C88DF00D0AFC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26130BA61D370F3100D0AFC2 /* FlashQuiz */;
+			targetProxy = 26130C401D3C88DF00D0AFC2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -455,10 +562,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FlashQuiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.FlashQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FlashQuiz/FlashQuiz-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -466,10 +576,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FlashQuiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.FlashQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FlashQuiz/FlashQuiz-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -497,6 +609,35 @@
 			};
 			name = Release;
 		};
+		26130C431D3C88DF00D0AFC2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = FlashQuizSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.FlashQuizSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FlashQuizSwiftTests/FlashQuizSwiftTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashQuiz.app/FlashQuiz";
+			};
+			name = Debug;
+		};
+		26130C441D3C88DF00D0AFC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = FlashQuizSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.FlashQuizSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FlashQuizSwiftTests/FlashQuizSwiftTests-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlashQuiz.app/FlashQuiz";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -516,6 +657,7 @@
 				26130BCB1D370F3100D0AFC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26130BCC1D370F3100D0AFC2 /* Build configuration list for PBXNativeTarget "FlashQuizTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +666,16 @@
 				26130BCE1D370F3100D0AFC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26130C421D3C88DF00D0AFC2 /* Build configuration list for PBXNativeTarget "FlashQuizSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26130C431D3C88DF00D0AFC2 /* Debug */,
+				26130C441D3C88DF00D0AFC2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

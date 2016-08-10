@@ -43,7 +43,7 @@
     self.imageView.image = nil;
 }
 
-- (void)finishLoadingWithImage:(nonnull UIImage *)image {
+- (void)finishLoadingWithImage:(nullable UIImage *)image {
     [self.activityIndicatorView stopAnimating];
     self.imageView.image = image;
 }
