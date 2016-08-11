@@ -42,69 +42,71 @@ class QuizSessionTests: XCTestCase {
     func testShufflingArray() {
         let numbers: [Int] = [1, 2, 3, 4, 5]
         let quizSession = QuizSession()
-        if let randomNumbers = quizSession.shuffleArray(numbers) as? [Int] {
-            // Note: Testing randomness is not 100% accurate since the result could be
-            // in the same order but with enough values that will be very unlikely.
 
-            XCTAssertTrue(numbers.count == randomNumbers.count, "Counts should match")
-
-            var notMatched: Bool = false
-            for (index, original) in numbers.enumerate() {
-                let random = randomNumbers[index]
-                if original != random {
-                    notMatched = true
-                    break
-                }
-            }
-
-            XCTAssertTrue(notMatched, "Random array should not match original array")
-        }
-        else {
+        guard let randomNumbers = quizSession.shuffleArray(numbers) as? [Int] else {
             XCTFail()
+            return
         }
+
+        // Note: Testing randomness is not 100% accurate since the result could be
+        // in the same order but with enough values that will be very unlikely.
+
+        XCTAssertTrue(numbers.count == randomNumbers.count, "Counts should match")
+
+        var notMatched: Bool = false
+        for (index, original) in numbers.enumerate() {
+            let random = randomNumbers[index]
+            if original != random {
+                notMatched = true
+                break
+            }
+        }
+
+        XCTAssertTrue(notMatched, "Random array should not match original array")
     }
 
     func testShuffleQuestions() {
-        if let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
-            let quizSession = QuizSession(questions: questions){
+        guard let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
+            let quizSession = QuizSession(questions: questions) else {
+                XCTFail()
+                return
+        }
 
-            XCTAssertNotNil(questions, "Valid value is expected")
-            XCTAssertNotNil(quizSession, "Valid value is expected")
+        XCTAssertNotNil(questions, "Valid value is expected")
+        XCTAssertNotNil(quizSession, "Valid value is expected")
 
-            quizSession.shuffleQuestions()
+        quizSession.shuffleQuestions()
 
-            var notMatched: Bool = false
-            for (index, question) in quizSession.questions.enumerate() {
-                let random = questions[index]
-                if question != random {
-                    notMatched = true
-                    break
-                }
-            }
-
-            if AppConfiguration.isShuffleEnabled() {
-                XCTAssertTrue(notMatched, "Random array should not match original array")
-            }
-            else {
-                XCTAssertFalse(notMatched, "Random array should not match original array")
+        var notMatched: Bool = false
+        for (index, question) in quizSession.questions.enumerate() {
+            let random = questions[index]
+            if question != random {
+                notMatched = true
+                break
             }
         }
+
+        if AppConfiguration.isShuffleEnabled() {
+            XCTAssertTrue(notMatched, "Random array should not match original array")
+        }
         else {
-            XCTFail()
+            XCTAssertFalse(notMatched, "Random array should not match original array")
         }
     }
 
     func testQuestionForPrompt() {
-        if let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
-            let quizSession = QuizSession(questions: questions) {
+        guard let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
+            let quizSession = QuizSession(questions: questions) else {
+                XCTFail()
+                return
+        }
 
-            XCTAssertNotNil(questions, "Valid value is expected")
-            XCTAssertNotNil(quizSession, "Valid value is expected")
+        XCTAssertNotNil(questions, "Valid value is expected")
+        XCTAssertNotNil(quizSession, "Valid value is expected")
 
-            for (_, question) in questions.enumerate() {
-                let otherQuestion = quizSession.questionForPrompt(question.prompt)
-                XCTAssertTrue(question.prompt == otherQuestion?.prompt)
-            }
+        for (_, question) in questions.enumerate() {
+            let otherQuestion = quizSession.questionForPrompt(question.prompt)
+            XCTAssertTrue(question.prompt == otherQuestion?.prompt)
         }
     }
 
@@ -122,55 +124,55 @@ class QuizSessionTests: XCTestCase {
 
     func testShufflingPerformance() {
         self.measureBlock {
-            if let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
-                let quizSession = QuizSession(questions: questions) {
-                XCTAssertNotNil(questions, "Valid value is expected")
-                XCTAssertNotNil(quizSession, "Valid value is expected")
+            guard let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
+                let quizSession = QuizSession(questions: questions) else {
+                    XCTFail()
+                    return
+            }
 
-                quizSession.shuffleQuestions()
-            }
-            else {
-                XCTFail()
-            }
+            XCTAssertNotNil(questions, "Valid value is expected")
+            XCTAssertNotNil(quizSession, "Valid value is expected")
+
+            quizSession.shuffleQuestions()
         }
     }
 
     func testQuizSessionAnsweringQuestions() {
         self.measureBlock {
-            if let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
-                let quizSession = QuizSession(questions: questions) {
-                XCTAssertNotNil(questions, "Valid value is expected")
-                XCTAssertNotNil(quizSession, "Valid value is expected")
+            guard let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
+                let quizSession = QuizSession(questions: questions) else {
+                    XCTFail()
+                    return
+            }
 
-                quizSession.startNewSession()
+            XCTAssertNotNil(questions, "Valid value is expected")
+            XCTAssertNotNil(quizSession, "Valid value is expected")
 
-                var currentQuestion = quizSession.currentQuestion
-                while currentQuestion != nil {
-                    if let answer = currentQuestion?.answers.first {
-                        quizSession.submitAnswer(answer)
-                        currentQuestion = quizSession.currentQuestion
-                    }
-                    else {
-                        XCTFail()
-                        break
-                    }
+            quizSession.startNewSession()
+
+            var currentQuestion = quizSession.currentQuestion
+            while currentQuestion != nil {
+                if let answer = currentQuestion?.answers.first {
+                    quizSession.submitAnswer(answer)
+                    currentQuestion = quizSession.currentQuestion
                 }
-
-                XCTAssertTrue(quizSession.isSessionCompleted, "Session should be completed")
-
-                // Now store the session to the Documents folder
-                quizSession.completeCurrentSession()
-
-                quizSession.startNewSession()
-
-                XCTAssertTrue(quizSession.answers.count == 0, "Answers count should be zero")
-
-                XCTAssertNotNil(questions, "Valid value is expected")
-                XCTAssertNotNil(quizSession, "Valid value is expected")
+                else {
+                    XCTFail()
+                    break
+                }
             }
-            else {
-                XCTFail()
-            }
+
+            XCTAssertTrue(quizSession.isSessionCompleted, "Session should be completed")
+
+            // Now store the session to the Documents folder
+            quizSession.completeCurrentSession()
+
+            quizSession.startNewSession()
+
+            XCTAssertTrue(quizSession.answers.count == 0, "Answers count should be zero")
+
+            XCTAssertNotNil(questions, "Valid value is expected")
+            XCTAssertNotNil(quizSession, "Valid value is expected")
         }
     }
 

@@ -19,24 +19,23 @@ class NetworkSessionManagerTests: XCTestCase {
     }
     
     func testFetchingJSON() {
-        let jsonURL = NSURL(string: "https://sst-robots.s3.amazonaws.com/data.json")
-        let manager = NetworkSessionManager()
-
         let expectation = self.expectationWithDescription("Fetching JSON")
-        if let jsonURL = jsonURL {
-            manager.fetchJSONWithURL(jsonURL, params: nil) { (json, error) in
-                XCTAssertTrue(NSThread.isMainThread(), "Must be main thread")
-                XCTAssertNil(error, "Error is not expected")
-                XCTAssertNotNil(json, "JSON is expected")
-                if let json = json {
-                    XCTAssertTrue(json.isKindOfClass(NSDictionary), "Must be a dictionary")
-                }
 
-                expectation.fulfill()
-            }
-        }
-        else {
+        guard let jsonURL = NSURL(string: "https://sst-robots.s3.amazonaws.com/data.json") else {
             XCTFail("Unable to create URL")
+            return
+        }
+
+        let manager = NetworkSessionManager()
+        manager.fetchJSONWithURL(jsonURL, params: nil) { (json, error) in
+            XCTAssertTrue(NSThread.isMainThread(), "Must be main thread")
+            XCTAssertNil(error, "Error is not expected")
+            XCTAssertNotNil(json, "JSON is expected")
+            if let json = json {
+                XCTAssertTrue(json.isKindOfClass(NSDictionary), "Must be a dictionary")
+            }
+
+            expectation.fulfill()
         }
 
         let timeout: NSTimeInterval = 10
@@ -46,21 +45,20 @@ class NetworkSessionManagerTests: XCTestCase {
     }
 
     func testFetchingImage() {
-        let imageURL = NSURL(string: "https://sst-robots.s3.amazonaws.com/robot.jpg")
-        let manager = NetworkSessionManager()
-
         let expectation = self.expectationWithDescription("Fetching Image")
-        if let imageURL = imageURL {
-            manager.fetchImageWithURL(imageURL, params: nil) { (image, error) in
-                XCTAssertTrue(NSThread.isMainThread(), "Must be main thread")
-                XCTAssertNil(error, "Error is not expected")
-                XCTAssertNotNil(image, "Image is expected")
 
-                expectation.fulfill()
-            }
-        }
-        else {
+        guard let imageURL = NSURL(string: "https://sst-robots.s3.amazonaws.com/robot.jpg") else {
             XCTFail("Unable to create URL")
+            return
+        }
+
+        let manager = NetworkSessionManager()
+        manager.fetchImageWithURL(imageURL, params: nil) { (image, error) in
+            XCTAssertTrue(NSThread.isMainThread(), "Must be main thread")
+            XCTAssertNil(error, "Error is not expected")
+            XCTAssertNotNil(image, "Image is expected")
+
+            expectation.fulfill()
         }
 
         let timeout: NSTimeInterval = 10

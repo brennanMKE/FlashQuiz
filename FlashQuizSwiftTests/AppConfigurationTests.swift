@@ -50,17 +50,11 @@ class AppConfigurationTests: XCTestCase {
     }
 
     func testMyAppSettingsNotNil() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-
         let myAppsettings = AppConfiguration.myAppsettings()
         XCTAssertNotNil(myAppsettings, "Value must be defined")
     }
 
     func testFileURLNotNil() {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-
         let fileURL = AppConfiguration.questionsFileURL()
         XCTAssertNotNil(fileURL, "Value must be defined")
     }
