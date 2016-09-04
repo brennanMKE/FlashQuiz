@@ -28,7 +28,7 @@ class QuizSessionViewControllerTests: XCTestCase {
         let expectation = expectationWithDescription("UI")
 
         guard let nc = getNavigationController() else {
-            XCTFail()
+            XCTFail("Failed to get navigation controller")
             return
         }
 
@@ -41,7 +41,7 @@ class QuizSessionViewControllerTests: XCTestCase {
 
         vc.performSegueWithIdentifier("pushQuizSession", sender: vc)
 
-        dispatch_after(whenInSeconds(0.5), dispatch_get_main_queue()) {
+        dispatch_after(whenInSeconds(1.5), dispatch_get_main_queue()) {
             guard let qs = nc.topViewController as? QuizSessionViewController,
                 let collectionView = qs.collectionView else {
                     XCTFail()
@@ -61,7 +61,7 @@ class QuizSessionViewControllerTests: XCTestCase {
                 currentQuestion = qs.quizSession.currentQuestion
             }
 
-            dispatch_after(self.whenInSeconds(0.25), dispatch_get_main_queue()) {
+            dispatch_after(self.whenInSeconds(0.75), dispatch_get_main_queue()) {
                 expectation.fulfill()
             }
         }
@@ -76,7 +76,7 @@ class QuizSessionViewControllerTests: XCTestCase {
         let expectation = expectationWithDescription("UI")
 
         guard let nc = getNavigationController() else {
-            XCTFail()
+            XCTFail("Failed to get navigation controller")
             return
         }
 
@@ -89,7 +89,7 @@ class QuizSessionViewControllerTests: XCTestCase {
 
         vc.performSegueWithIdentifier("pushQuizSession", sender: vc)
 
-        dispatch_after(whenInSeconds(0.5), dispatch_get_main_queue()) {
+        dispatch_after(whenInSeconds(1.5), dispatch_get_main_queue()) {
             guard let qs = nc.topViewController as? QuizSessionViewController,
                 let collectionView = qs.collectionView else {
                     XCTFail()
@@ -117,7 +117,7 @@ class QuizSessionViewControllerTests: XCTestCase {
 
             qs.expireAfterTimeout()
 
-            dispatch_after(self.whenInSeconds(0.25), dispatch_get_main_queue()) {
+            dispatch_after(self.whenInSeconds(0.75), dispatch_get_main_queue()) {
                 expectation.fulfill()
             }
         }
@@ -132,7 +132,7 @@ class QuizSessionViewControllerTests: XCTestCase {
         let expectation = expectationWithDescription("UI")
 
         guard let nc = getNavigationController() else {
-            XCTFail()
+            XCTFail("Failed to get navigation controller")
             return
         }
 
@@ -145,7 +145,7 @@ class QuizSessionViewControllerTests: XCTestCase {
 
         vc.performSegueWithIdentifier("pushQuizSession", sender: vc)
 
-        dispatch_after(whenInSeconds(0.5), dispatch_get_main_queue()) {
+        dispatch_after(whenInSeconds(1.5), dispatch_get_main_queue()) {
             guard let qs = nc.topViewController as? QuizSessionViewController,
                 let collectionView = qs.collectionView else {
                     XCTFail()
@@ -161,7 +161,7 @@ class QuizSessionViewControllerTests: XCTestCase {
                 qs.submitButtonTapped(qs.submitButton)
             }
 
-            dispatch_after(self.whenInSeconds(0.25), dispatch_get_main_queue()) {
+            dispatch_after(self.whenInSeconds(0.75), dispatch_get_main_queue()) {
                 expectation.fulfill()
             }
         }

@@ -23,7 +23,7 @@ class StartQuizViewControllerTests: XCTestCase {
         let expectation = expectationWithDescription("UI")
 
         guard let nc = getNavigationController() else {
-            XCTFail()
+            XCTFail("Failed to get navigation controller")
             return
         }
 
@@ -36,9 +36,9 @@ class StartQuizViewControllerTests: XCTestCase {
 
         vc.performSegueWithIdentifier("pushQuizSession", sender: vc)
 
-        dispatch_after(whenInSeconds(0.5), dispatch_get_main_queue()) {
+        dispatch_after(whenInSeconds(1.5), dispatch_get_main_queue()) {
             nc.popToRootViewControllerAnimated(false)
-            dispatch_after(self.whenInSeconds(0.25), dispatch_get_main_queue()) {
+            dispatch_after(self.whenInSeconds(0.75), dispatch_get_main_queue()) {
                 expectation.fulfill()
             }
         }
