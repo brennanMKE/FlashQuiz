@@ -1,6 +1,7 @@
 # FlashQuiz
 
 ![MIT Licence](https://img.shields.io/badge/license-MIT-blue.svg)
+[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=57cc4de670bc81010028daec&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/57cc4de670bc81010028daec/build/latest)
 
 Sample project which features unit tests written in Objective-C and Swift. The app was initially written without a UI and just state, behavior and tests written in Objective-C. Then the UI was introduced after the state and behavior was tested and ready. Approaching the development process in this way ensured the code was functional and testable without UI. Now changes require less work because the UI is decoupled from the state and behavior.
 
