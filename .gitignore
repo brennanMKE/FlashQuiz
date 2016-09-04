@@ -27,3 +27,5 @@ xcuserdata/
 *.xcscmblueprint
 .vscode/
 
+
+.DS_Store
