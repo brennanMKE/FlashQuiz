@@ -46,7 +46,7 @@
         [expectation fulfill];
     }];
 
-    NSTimeInterval timeout = 10; // 10 seconds
+    NSTimeInterval timeout = 60; // 10 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];
@@ -65,7 +65,7 @@
         [expectation fulfill];
     }];
 
-    NSTimeInterval timeout = 10; // 10 seconds
+    NSTimeInterval timeout = 60; // 10 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];
@@ -97,7 +97,7 @@
         }];
     }
 
-    NSTimeInterval timeout = 10; // 10 seconds
+    NSTimeInterval timeout = 60; // 10 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];

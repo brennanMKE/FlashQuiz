@@ -86,7 +86,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
         });
     });
 
-    NSTimeInterval timeout = 10; // 10 seconds
+    NSTimeInterval timeout = 60; // 10 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];
@@ -130,7 +130,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
         });
     });
 
-    NSTimeInterval timeout = 10; // 10 seconds
+    NSTimeInterval timeout = 60; // 10 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];
@@ -169,7 +169,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
         });
     });
 
-    NSTimeInterval timeout = 10; // 10 seconds
+    NSTimeInterval timeout = 60; // 10 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];
