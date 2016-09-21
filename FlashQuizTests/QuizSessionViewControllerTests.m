@@ -67,7 +67,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
     // Runs the button tap action.
     [vc performSegueWithIdentifier:@"pushQuizSession" sender:vc];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.75 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         QuizSessionViewController *qs = (QuizSessionViewController *)nc.topViewController;
         XCTAssertNotNil(qs);
         XCTAssertTrue([qs isKindOfClass:[QuizSessionViewController class]]);
@@ -86,7 +86,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
         });
     });
 
-    NSTimeInterval timeout = 60; // 10 seconds
+    NSTimeInterval timeout = 60; // 60 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];
@@ -107,7 +107,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
     // Runs the button tap action.
     [vc performSegueWithIdentifier:@"pushQuizSession" sender:vc];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.75 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         QuizSessionViewController *qs = (QuizSessionViewController *)nc.topViewController;
         XCTAssertNotNil(qs);
         XCTAssertTrue([qs isKindOfClass:[QuizSessionViewController class]]);
@@ -130,7 +130,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
         });
     });
 
-    NSTimeInterval timeout = 60; // 10 seconds
+    NSTimeInterval timeout = 60; // 60 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];
@@ -151,7 +151,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
     // Runs the button tap action.
     [vc performSegueWithIdentifier:@"pushQuizSession" sender:vc];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.75 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         QuizSessionViewController *qs = (QuizSessionViewController *)nc.topViewController;
         XCTAssertNotNil(qs);
         XCTAssertTrue([qs isKindOfClass:[QuizSessionViewController class]]);
@@ -169,7 +169,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
         });
     });
 
-    NSTimeInterval timeout = 60; // 10 seconds
+    NSTimeInterval timeout = 60; // 60 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];

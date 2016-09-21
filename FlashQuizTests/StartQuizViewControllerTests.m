@@ -63,7 +63,7 @@ CG_INLINE UINavigationController *GetNavigationController() {
         });
     });
 
-    NSTimeInterval timeout = 60; // 10 seconds
+    NSTimeInterval timeout = 60; // 60 seconds
     [self waitForExpectationsWithTimeout:timeout handler:^(NSError * _Nullable error) {
         // do nothing
     }];
