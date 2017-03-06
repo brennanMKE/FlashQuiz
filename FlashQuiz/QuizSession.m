@@ -8,7 +8,6 @@
 
 #import "QuizSession.h"
 
-#import "AppConfiguration.h"
 #import "Question.h"
 
 #pragma mark - Class Extension
@@ -135,7 +134,7 @@
 
 - (void)shuffleQuestions {
     // All questions and answers will be sorted into a random order
-    if ([AppConfiguration isShuffleEnabled]) {
+    if ([self isShuffleEnabled]) {
         NSMutableArray<Question *>* shuffledQuestions = @[].mutableCopy;
         NSArray<Question *>* questions = [self shuffleArray:self.questions];
         NSAssert(self.questions.count == questions.count, @"Counts must match");
@@ -158,6 +157,12 @@
     }
 
     return [NSArray arrayWithArray:temp];
+}
+
+- (BOOL)isShuffleEnabled {
+    // Note: Environment variables will not be false when not defined, like an App Store build.
+    NSString *value = [[[NSProcessInfo processInfo] environment] objectForKey:@"DisableShuffling"];
+    return ![value boolValue];
 }
 
 - (nullable Question *)questionForPrompt:(nonnull NSString *)prompt {

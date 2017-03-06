@@ -8,10 +8,10 @@
 
 #import "QuizSessionViewController.h"
 
+#import <FlashQuizKit/FlashQuizKit.h>
+
 #import "AppConfiguration.h"
 #import "NetworkSessionManager.h"
-#import "QuizSession.h"
-#import "Question.h"
 #import "AnswerCell.h"
 
 #define kPadding 40.0

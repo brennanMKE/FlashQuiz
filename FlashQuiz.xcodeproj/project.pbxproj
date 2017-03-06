@@ -25,9 +25,7 @@
 		26130BF11D37105700D0AFC2 /* AnswerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BE21D37105700D0AFC2 /* AnswerCell.m */; };
 		26130BF21D37105700D0AFC2 /* NetworkSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BE31D37105700D0AFC2 /* NetworkSessionManager.m */; };
 		26130BF31D37105700D0AFC2 /* AppConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BE61D37105700D0AFC2 /* AppConfiguration.m */; };
-		26130BF41D37105700D0AFC2 /* QuizSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BE81D37105700D0AFC2 /* QuizSession.m */; };
 		26130BF51D37105700D0AFC2 /* StartQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BEB1D37105700D0AFC2 /* StartQuizViewController.m */; };
-		26130BF61D37105700D0AFC2 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BED1D37105700D0AFC2 /* Question.m */; };
 		26130BF71D37105700D0AFC2 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 26130BEF1D37105700D0AFC2 /* questions.json */; };
 		26130C481D3C892600D0AFC2 /* AnswerCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C471D3C892600D0AFC2 /* AnswerCellTests.swift */; };
 		26130C4A1D3C895D00D0AFC2 /* AppConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C491D3C895D00D0AFC2 /* AppConfigurationTests.swift */; };
@@ -38,6 +36,13 @@
 		26130C541D3C89A800D0AFC2 /* QuizSessionViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C531D3C89A800D0AFC2 /* QuizSessionViewControllerTests.swift */; };
 		26130C561D3C89B600D0AFC2 /* StartQuizViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26130C551D3C89B600D0AFC2 /* StartQuizViewControllerTests.swift */; };
 		26755CAD1D52A4D300EFCAA8 /* invalid.json in Resources */ = {isa = PBXBuildFile; fileRef = 26130BD11D37100B00D0AFC2 /* invalid.json */; };
+		26ACBA3E1E6DC5E4000F7CE8 /* FlashQuizKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 26ACBA3C1E6DC5E4000F7CE8 /* FlashQuizKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26ACBA411E6DC5E5000F7CE8 /* FlashQuizKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26ACBA3A1E6DC5E4000F7CE8 /* FlashQuizKit.framework */; };
+		26ACBA421E6DC5E5000F7CE8 /* FlashQuizKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26ACBA3A1E6DC5E4000F7CE8 /* FlashQuizKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		26ACBA471E6DC610000F7CE8 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BED1D37105700D0AFC2 /* Question.m */; };
+		26ACBA481E6DC610000F7CE8 /* QuizSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 26130BE81D37105700D0AFC2 /* QuizSession.m */; };
+		26ACBA491E6DC6D1000F7CE8 /* Question.h in Headers */ = {isa = PBXBuildFile; fileRef = 26130BEE1D37105700D0AFC2 /* Question.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		26ACBA4A1E6DC6D7000F7CE8 /* QuizSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 26130BE71D37105700D0AFC2 /* QuizSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +60,42 @@
 			remoteGlobalIDString = 26130BA61D370F3100D0AFC2;
 			remoteInfo = FlashQuiz;
 		};
+		26ACBA3F1E6DC5E4000F7CE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26130B9F1D370F3100D0AFC2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26ACBA391E6DC5E4000F7CE8;
+			remoteInfo = FlashQuizKit;
+		};
+		26ACBA4B1E6DC824000F7CE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26130B9F1D370F3100D0AFC2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26ACBA391E6DC5E4000F7CE8;
+			remoteInfo = FlashQuizKit;
+		};
+		26ACBA4D1E6DC828000F7CE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26130B9F1D370F3100D0AFC2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26ACBA391E6DC5E4000F7CE8;
+			remoteInfo = FlashQuizKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		26ACBA461E6DC5E5000F7CE8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				26ACBA421E6DC5E5000F7CE8 /* FlashQuizKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		26130BA71D370F3100D0AFC2 /* FlashQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlashQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,14 +123,14 @@
 		26130BE41D37105700D0AFC2 /* AnswerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerCell.h; sourceTree = "<group>"; };
 		26130BE51D37105700D0AFC2 /* AppConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfiguration.h; sourceTree = "<group>"; };
 		26130BE61D37105700D0AFC2 /* AppConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfiguration.m; sourceTree = "<group>"; };
-		26130BE71D37105700D0AFC2 /* QuizSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizSession.h; sourceTree = "<group>"; };
-		26130BE81D37105700D0AFC2 /* QuizSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizSession.m; sourceTree = "<group>"; };
+		26130BE71D37105700D0AFC2 /* QuizSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizSession.h; path = ../FlashQuiz/QuizSession.h; sourceTree = "<group>"; };
+		26130BE81D37105700D0AFC2 /* QuizSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizSession.m; path = ../FlashQuiz/QuizSession.m; sourceTree = "<group>"; };
 		26130BE91D37105700D0AFC2 /* QuizSessionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizSessionViewController.h; sourceTree = "<group>"; };
 		26130BEA1D37105700D0AFC2 /* StartQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartQuizViewController.h; sourceTree = "<group>"; };
 		26130BEB1D37105700D0AFC2 /* StartQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartQuizViewController.m; sourceTree = "<group>"; };
 		26130BEC1D37105700D0AFC2 /* NetworkSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkSessionManager.h; sourceTree = "<group>"; };
-		26130BED1D37105700D0AFC2 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
-		26130BEE1D37105700D0AFC2 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		26130BED1D37105700D0AFC2 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = ../FlashQuiz/Question.m; sourceTree = "<group>"; };
+		26130BEE1D37105700D0AFC2 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = ../FlashQuiz/Question.h; sourceTree = "<group>"; };
 		26130BEF1D37105700D0AFC2 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		26130C3B1D3C88DF00D0AFC2 /* FlashQuizSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashQuizSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26130C3F1D3C88DF00D0AFC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +144,9 @@
 		26130C551D3C89B600D0AFC2 /* StartQuizViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartQuizViewControllerTests.swift; sourceTree = "<group>"; };
 		26130C571D3C8AA800D0AFC2 /* FlashQuiz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlashQuiz-Bridging-Header.h"; sourceTree = "<group>"; };
 		26130C5A1D3C977A00D0AFC2 /* FlashQuizSwiftTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlashQuizSwiftTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		26ACBA3A1E6DC5E4000F7CE8 /* FlashQuizKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlashQuizKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26ACBA3C1E6DC5E4000F7CE8 /* FlashQuizKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashQuizKit.h; sourceTree = "<group>"; };
+		26ACBA3D1E6DC5E4000F7CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26ACBA411E6DC5E5000F7CE8 /* FlashQuizKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +172,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26ACBA361E6DC5E4000F7CE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -135,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				26130BA91D370F3100D0AFC2 /* FlashQuiz */,
+				26ACBA3B1E6DC5E4000F7CE8 /* FlashQuizKit */,
 				26130BC31D370F3100D0AFC2 /* FlashQuizTests */,
 				26130C3C1D3C88DF00D0AFC2 /* FlashQuizSwiftTests */,
 				26130BA81D370F3100D0AFC2 /* Products */,
@@ -147,6 +199,7 @@
 				26130BA71D370F3100D0AFC2 /* FlashQuiz.app */,
 				26130BC01D370F3100D0AFC2 /* FlashQuizTests.xctest */,
 				26130C3B1D3C88DF00D0AFC2 /* FlashQuizSwiftTests.xctest */,
+				26ACBA3A1E6DC5E4000F7CE8 /* FlashQuizKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,7 +210,6 @@
 				26130BAA1D370F3100D0AFC2 /* Supporting Files */,
 				26130BF81D37107000D0AFC2 /* App Support */,
 				26130BFC1D3710CF00D0AFC2 /* Storyboards */,
-				26130BF91D37107800D0AFC2 /* Models */,
 				26130BFA1D37107E00D0AFC2 /* Views */,
 				26130BFB1D37108300D0AFC2 /* Controllers */,
 			);
@@ -206,17 +258,6 @@
 			name = "App Support";
 			sourceTree = "<group>";
 		};
-		26130BF91D37107800D0AFC2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				26130BEE1D37105700D0AFC2 /* Question.h */,
-				26130BED1D37105700D0AFC2 /* Question.m */,
-				26130BE71D37105700D0AFC2 /* QuizSession.h */,
-				26130BE81D37105700D0AFC2 /* QuizSession.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		26130BFA1D37107E00D0AFC2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,7 +304,33 @@
 			path = FlashQuizSwiftTests;
 			sourceTree = "<group>";
 		};
+		26ACBA3B1E6DC5E4000F7CE8 /* FlashQuizKit */ = {
+			isa = PBXGroup;
+			children = (
+				26ACBA3C1E6DC5E4000F7CE8 /* FlashQuizKit.h */,
+				26ACBA3D1E6DC5E4000F7CE8 /* Info.plist */,
+				26130BEE1D37105700D0AFC2 /* Question.h */,
+				26130BED1D37105700D0AFC2 /* Question.m */,
+				26130BE71D37105700D0AFC2 /* QuizSession.h */,
+				26130BE81D37105700D0AFC2 /* QuizSession.m */,
+			);
+			path = FlashQuizKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		26ACBA371E6DC5E4000F7CE8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26ACBA4A1E6DC6D7000F7CE8 /* QuizSession.h in Headers */,
+				26ACBA491E6DC6D1000F7CE8 /* Question.h in Headers */,
+				26ACBA3E1E6DC5E4000F7CE8 /* FlashQuizKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		26130BA61D370F3100D0AFC2 /* FlashQuiz */ = {
@@ -273,10 +340,12 @@
 				26130BA31D370F3100D0AFC2 /* Sources */,
 				26130BA41D370F3100D0AFC2 /* Frameworks */,
 				26130BA51D370F3100D0AFC2 /* Resources */,
+				26ACBA461E6DC5E5000F7CE8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				26ACBA401E6DC5E4000F7CE8 /* PBXTargetDependency */,
 			);
 			name = FlashQuiz;
 			productName = FlashQuiz;
@@ -294,6 +363,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				26ACBA4C1E6DC824000F7CE8 /* PBXTargetDependency */,
 				26130BC21D370F3100D0AFC2 /* PBXTargetDependency */,
 			);
 			name = FlashQuizTests;
@@ -312,12 +382,31 @@
 			buildRules = (
 			);
 			dependencies = (
+				26ACBA4E1E6DC828000F7CE8 /* PBXTargetDependency */,
 				26130C411D3C88DF00D0AFC2 /* PBXTargetDependency */,
 			);
 			name = FlashQuizSwiftTests;
 			productName = FlashQuizSwiftTests;
 			productReference = 26130C3B1D3C88DF00D0AFC2 /* FlashQuizSwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		26ACBA391E6DC5E4000F7CE8 /* FlashQuizKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26ACBA451E6DC5E5000F7CE8 /* Build configuration list for PBXNativeTarget "FlashQuizKit" */;
+			buildPhases = (
+				26ACBA351E6DC5E4000F7CE8 /* Sources */,
+				26ACBA361E6DC5E4000F7CE8 /* Frameworks */,
+				26ACBA371E6DC5E4000F7CE8 /* Headers */,
+				26ACBA381E6DC5E4000F7CE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlashQuizKit;
+			productName = FlashQuizKit;
+			productReference = 26ACBA3A1E6DC5E4000F7CE8 /* FlashQuizKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -344,6 +433,11 @@
 						LastSwiftMigration = 0800;
 						TestTargetID = 26130BA61D370F3100D0AFC2;
 					};
+					26ACBA391E6DC5E4000F7CE8 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = JJUWC4MH8Y;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 26130BA21D370F3100D0AFC2 /* Build configuration list for PBXProject "FlashQuiz" */;
@@ -360,6 +454,7 @@
 			projectRoot = "";
 			targets = (
 				26130BA61D370F3100D0AFC2 /* FlashQuiz */,
+				26ACBA391E6DC5E4000F7CE8 /* FlashQuizKit */,
 				26130BBF1D370F3100D0AFC2 /* FlashQuizTests */,
 				26130C3A1D3C88DF00D0AFC2 /* FlashQuizSwiftTests */,
 			);
@@ -394,6 +489,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26ACBA381E6DC5E4000F7CE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -404,10 +506,8 @@
 				26130BAF1D370F3100D0AFC2 /* AppDelegate.m in Sources */,
 				26130BF01D37105700D0AFC2 /* QuizSessionViewController.m in Sources */,
 				26130BF51D37105700D0AFC2 /* StartQuizViewController.m in Sources */,
-				26130BF41D37105700D0AFC2 /* QuizSession.m in Sources */,
 				26130BF21D37105700D0AFC2 /* NetworkSessionManager.m in Sources */,
 				26130BAC1D370F3100D0AFC2 /* main.m in Sources */,
-				26130BF61D37105700D0AFC2 /* Question.m in Sources */,
 				26130BF31D37105700D0AFC2 /* AppConfiguration.m in Sources */,
 				26130BF11D37105700D0AFC2 /* AnswerCell.m in Sources */,
 			);
@@ -443,6 +543,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		26ACBA351E6DC5E4000F7CE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26ACBA471E6DC610000F7CE8 /* Question.m in Sources */,
+				26ACBA481E6DC610000F7CE8 /* QuizSession.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -455,6 +564,21 @@
 			isa = PBXTargetDependency;
 			target = 26130BA61D370F3100D0AFC2 /* FlashQuiz */;
 			targetProxy = 26130C401D3C88DF00D0AFC2 /* PBXContainerItemProxy */;
+		};
+		26ACBA401E6DC5E4000F7CE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26ACBA391E6DC5E4000F7CE8 /* FlashQuizKit */;
+			targetProxy = 26ACBA3F1E6DC5E4000F7CE8 /* PBXContainerItemProxy */;
+		};
+		26ACBA4C1E6DC824000F7CE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26ACBA391E6DC5E4000F7CE8 /* FlashQuizKit */;
+			targetProxy = 26ACBA4B1E6DC824000F7CE8 /* PBXContainerItemProxy */;
+		};
+		26ACBA4E1E6DC828000F7CE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26ACBA391E6DC5E4000F7CE8 /* FlashQuizKit */;
+			targetProxy = 26ACBA4D1E6DC828000F7CE8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -521,6 +645,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -562,6 +687,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -655,6 +781,52 @@
 			};
 			name = Release;
 		};
+		26ACBA431E6DC5E5000F7CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JJUWC4MH8Y;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FlashQuizKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.FlashQuizKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		26ACBA441E6DC5E5000F7CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = JJUWC4MH8Y;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FlashQuizKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smallsharptools.FlashQuizKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -693,6 +865,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		26ACBA451E6DC5E5000F7CE8 /* Build configuration list for PBXNativeTarget "FlashQuizKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26ACBA431E6DC5E5000F7CE8 /* Debug */,
+				26ACBA441E6DC5E5000F7CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

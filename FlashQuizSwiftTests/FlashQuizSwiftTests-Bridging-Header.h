@@ -4,6 +4,8 @@
 
 #import "FlashQuiz-Bridging-Header.h"
 
+#import <FlashQuizKit/FlashQuizKit.h>
+
 @interface QuizSession (QuizSessionTests)
 
 - (void)shuffleQuestions;
