@@ -35,7 +35,7 @@ class AppConfigurationTests: XCTestCase {
     }
 
     func testDebugging() {
-        let enableDebugging = NSProcessInfo.processInfo().environment["EnableDebugging"]
+        let enableDebugging = ProcessInfo.processInfo.environment["EnableDebugging"]
         var rawIsDebugging: Bool = false
         if let enableDebugging = enableDebugging {
             rawIsDebugging = NSString(string: enableDebugging).boolValue

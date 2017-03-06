@@ -20,43 +20,43 @@ class StartQuizViewControllerTests: XCTestCase {
     }
 
     func testViewControllerGenerically() {
-        let expectation = expectationWithDescription("UI")
+        let expectation = self.expectation(description: "UI")
 
         guard let nc = getNavigationController() else {
             XCTFail("Failed to get navigation controller")
             return
         }
 
-        nc.popToRootViewControllerAnimated(false)
+        nc.popToRootViewController(animated: false)
 
         guard let vc = nc.topViewController as? StartQuizViewController else {
             XCTFail()
             return
         }
 
-        vc.performSegueWithIdentifier("pushQuizSession", sender: vc)
+        vc.performSegue(withIdentifier: "pushQuizSession", sender: vc)
 
-        dispatch_after(whenInSeconds(1.5), dispatch_get_main_queue()) {
-            nc.popToRootViewControllerAnimated(false)
-            dispatch_after(self.whenInSeconds(0.75), dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: whenInSeconds(1.5)) {
+            nc.popToRootViewController(animated: false)
+            DispatchQueue.main.asyncAfter(deadline: self.whenInSeconds(0.75)) {
                 expectation.fulfill()
             }
         }
 
-        let timeout: NSTimeInterval = 10
-        self.waitForExpectationsWithTimeout(timeout) { (error) in
+        let timeout: TimeInterval = 10
+        self.waitForExpectations(timeout: timeout) { (error) in
             // do nothing
         }
     }
 
     // MARK: Private -
 
-    private func whenInSeconds(seconds: Double) -> dispatch_time_t {
-        return dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
+    fileprivate func whenInSeconds(_ seconds: Double) -> DispatchTime {
+        return DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
     }
 
-    private func getNavigationController() -> UINavigationController? {
-        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate,
+    fileprivate func getNavigationController() -> UINavigationController? {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate,
             let navigationController = appDelegate.window.rootViewController as? UINavigationController {
             return navigationController
         }

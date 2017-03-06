@@ -19,10 +19,11 @@ class QuizSessionTests: XCTestCase {
     }
 
     func testLoadQuizSession() {
-        let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL())
+        let questions = Question.questions(withFileURL: AppConfiguration.questionsFileURL())
         XCTAssertNotNil(questions, "Questions must be defined")
         if let questions = questions {
-            let quizSession = QuizSession(questions: questions)
+            let quizSession = QuizSession<AnyObject>(questions: questions)
+            XCTAssertGreaterThan(quizSession?.questions.count ?? 0, 0)
             XCTAssertNotNil(quizSession, "Valid value is expected")
         }
         else {
@@ -41,9 +42,9 @@ class QuizSessionTests: XCTestCase {
 
     func testShufflingArray() {
         let numbers: [Int] = [1, 2, 3, 4, 5]
-        let quizSession = QuizSession()
+        let quizSession = QuizSession<AnyObject>()
 
-        guard let randomNumbers = quizSession.shuffleArray(numbers) as? [Int] else {
+        guard let randomNumbers = quizSession.shuffleArray(numbers as [AnyObject]) as? [Int] else {
             XCTFail()
             return
         }
@@ -54,7 +55,7 @@ class QuizSessionTests: XCTestCase {
         XCTAssertTrue(numbers.count == randomNumbers.count, "Counts should match")
 
         var notMatched: Bool = false
-        for (index, original) in numbers.enumerate() {
+        for (index, original) in numbers.enumerated() {
             let random = randomNumbers[index]
             if original != random {
                 notMatched = true
@@ -66,8 +67,8 @@ class QuizSessionTests: XCTestCase {
     }
 
     func testShuffleQuestions() {
-        guard let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
-            let quizSession = QuizSession(questions: questions) else {
+        guard let questions = Question.questions(withFileURL: AppConfiguration.questionsFileURL()),
+            let quizSession = QuizSession<AnyObject>(questions: questions) else {
                 XCTFail()
                 return
         }
@@ -78,7 +79,7 @@ class QuizSessionTests: XCTestCase {
         quizSession.shuffleQuestions()
 
         var notMatched: Bool = false
-        for (index, question) in quizSession.questions.enumerate() {
+        for (index, question) in quizSession.questions.enumerated() {
             let random = questions[index]
             if question != random {
                 notMatched = true
@@ -95,8 +96,8 @@ class QuizSessionTests: XCTestCase {
     }
 
     func testQuestionForPrompt() {
-        guard let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
-            let quizSession = QuizSession(questions: questions) else {
+        guard let questions = Question.questions(withFileURL: AppConfiguration.questionsFileURL()),
+            let quizSession = QuizSession<AnyObject>(questions: questions) else {
                 XCTFail()
                 return
         }
@@ -104,14 +105,14 @@ class QuizSessionTests: XCTestCase {
         XCTAssertNotNil(questions, "Valid value is expected")
         XCTAssertNotNil(quizSession, "Valid value is expected")
 
-        for (_, question) in questions.enumerate() {
-            let otherQuestion = quizSession.questionForPrompt(question.prompt)
+        for (_, question) in questions.enumerated() {
+            let otherQuestion = quizSession.question(forPrompt: question.prompt)
             XCTAssertTrue(question.prompt == otherQuestion?.prompt)
         }
     }
 
     func testUUID() {
-        let quizSession = QuizSession()
+        let quizSession = QuizSession<AnyObject>()
         XCTAssertNotNil(quizSession, "Valid value is expected")
 
         let uuidString1 = quizSession.uuidString()
@@ -123,9 +124,9 @@ class QuizSessionTests: XCTestCase {
     }
 
     func testShufflingPerformance() {
-        self.measureBlock {
-            guard let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
-                let quizSession = QuizSession(questions: questions) else {
+        self.measure {
+            guard let questions = Question.questions(withFileURL: AppConfiguration.questionsFileURL()),
+                let quizSession = QuizSession<AnyObject>(questions: questions) else {
                     XCTFail()
                     return
             }
@@ -138,9 +139,9 @@ class QuizSessionTests: XCTestCase {
     }
 
     func testQuizSessionAnsweringQuestions() {
-        self.measureBlock {
-            guard let questions = Question.questionsWithFileURL(AppConfiguration.questionsFileURL()),
-                let quizSession = QuizSession(questions: questions) else {
+        self.measure {
+            guard let questions = Question.questions(withFileURL: AppConfiguration.questionsFileURL()),
+                let quizSession = QuizSession<AnyObject>(questions: questions) else {
                     XCTFail()
                     return
             }

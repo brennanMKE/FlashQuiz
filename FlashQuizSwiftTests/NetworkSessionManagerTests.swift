@@ -19,60 +19,60 @@ class NetworkSessionManagerTests: XCTestCase {
     }
     
     func testFetchingJSON() {
-        let expectation = self.expectationWithDescription("Fetching JSON")
+        let expectation = self.expectation(description: "Fetching JSON")
 
-        guard let jsonURL = NSURL(string: "https://sst-robots.s3.amazonaws.com/data.json") else {
+        guard let jsonURL = URL(string: "https://sst-robots.s3.amazonaws.com/data.json") else {
             XCTFail("Unable to create URL")
             return
         }
 
         let manager = NetworkSessionManager()
-        manager.fetchJSONWithURL(jsonURL, params: nil) { (json, error) in
-            XCTAssertTrue(NSThread.isMainThread(), "Must be main thread")
+        manager.fetchJSON(with: jsonURL, params: nil) { (json, error) in
+            XCTAssertTrue(Thread.isMainThread, "Must be main thread")
             XCTAssertNil(error, "Error is not expected")
             XCTAssertNotNil(json, "JSON is expected")
             if let json = json {
-                XCTAssertTrue(json.isKindOfClass(NSDictionary), "Must be a dictionary")
+                XCTAssertTrue((json as AnyObject).isKind(of: NSDictionary.self), "Must be a dictionary")
             }
 
             expectation.fulfill()
         }
 
-        let timeout: NSTimeInterval = 10
-        self.waitForExpectationsWithTimeout(timeout) { (error) in
+        let timeout: TimeInterval = 10
+        self.waitForExpectations(timeout: timeout) { (error) in
             // do nothing
         }
     }
 
     func testFetchingImage() {
-        let expectation = self.expectationWithDescription("Fetching Image")
+        let expectation = self.expectation(description: "Fetching Image")
 
-        guard let imageURL = NSURL(string: "https://sst-robots.s3.amazonaws.com/robot.jpg") else {
+        guard let imageURL = URL(string: "https://sst-robots.s3.amazonaws.com/robot.jpg") else {
             XCTFail("Unable to create URL")
             return
         }
 
         let manager = NetworkSessionManager()
-        manager.fetchImageWithURL(imageURL, params: nil) { (image, error) in
-            XCTAssertTrue(NSThread.isMainThread(), "Must be main thread")
+        manager.fetchImage(with: imageURL, params: nil) { (image, error) in
+            XCTAssertTrue(Thread.isMainThread, "Must be main thread")
             XCTAssertNil(error, "Error is not expected")
             XCTAssertNotNil(image, "Image is expected")
 
             expectation.fulfill()
         }
 
-        let timeout: NSTimeInterval = 10
-        self.waitForExpectationsWithTimeout(timeout) { (error) in
+        let timeout: TimeInterval = 10
+        self.waitForExpectations(timeout: timeout) { (error) in
             // do nothing
         }
     }
 
     func testFetchingImages() {
         let fileURL = AppConfiguration.questionsFileURL()
-        let questions = Question.questionsWithFileURL(fileURL)
+        let questions = Question.questions(withFileURL: fileURL)
         let manager = NetworkSessionManager()
 
-        let expectation = self.expectationWithDescription("Fetching Images")
+        let expectation = self.expectation(description: "Fetching Images")
 
         XCTAssertNotNil(questions)
         if let questions = questions {
@@ -85,9 +85,9 @@ class NetworkSessionManagerTests: XCTestCase {
                 XCTAssert(question.answers.count > 0)
                 for answer in question.answers {
                     print("Answer: \(answer)")
-                    let imageURL = NSURL(string: answer)
+                    let imageURL = URL(string: answer)
                     if let imageURL = imageURL {
-                        manager.fetchImageWithURL(imageURL, params: nil, withCompletionBlock: { (image, error) in
+                        manager.fetchImage(with: imageURL, params: nil, withCompletionBlock: { (image, error) in
                             XCTAssertNil(error, "Error is not expected")
                             XCTAssertNotNil(image, "Image is expected")
                             count += 1
@@ -102,19 +102,22 @@ class NetworkSessionManagerTests: XCTestCase {
             }
         }
         
-        let timeout: NSTimeInterval = 10
-        self.waitForExpectationsWithTimeout(timeout) { (error) in
+        let timeout: TimeInterval = 10
+        self.waitForExpectations(timeout: timeout) { (error) in
             // do nothing
         }
     }
 
     func testNoCompletionBlocks() {
-        let anyURL = NSURL(string: "")
+        guard let anyURL = URL(string: "http://localhost") else {
+            XCTFail()
+            return
+        }
         let manager = NetworkSessionManager()
 
-        let task1 = manager.fetchJSONWithURL(anyURL!, params: nil, withCompletionBlock: nil)
-        let task2 = manager.fetchImageWithURL(anyURL!, params: nil, withCompletionBlock: nil)
-        let task3 = manager.fetchDataWithURL(anyURL!, params: nil, withCompletionBlock: nil)
+        let task1 = manager.fetchJSON(with: anyURL, params: nil, withCompletionBlock: nil)
+        let task2 = manager.fetchImage(with: anyURL, params: nil, withCompletionBlock: nil)
+        let task3 = manager.fetchData(with: anyURL, params: nil, withCompletionBlock: nil)
 
         XCTAssertNil(task1)
         XCTAssertNil(task2)

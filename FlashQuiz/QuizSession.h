@@ -10,6 +10,8 @@
 
 #import "Question.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface QuizSession<__covariant ObjectType> : NSObject
 
 @property (readonly, copy, nonatomic, nonnull) NSArray<Question *> *questions;
@@ -25,3 +27,5 @@
 - (void)completeCurrentSession;
 
 @end
+
+NS_ASSUME_NONNULL_END

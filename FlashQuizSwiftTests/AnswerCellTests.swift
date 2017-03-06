@@ -22,11 +22,11 @@ class AnswerCellTests: XCTestCase {
         let cell = AnswerCell()
         cell.layoutSubviews()
         cell.prepareForReuse()
-        cell.selected = !cell.selected // change selected
-        cell.selected = !cell.selected // change it back
+        cell.isSelected = !cell.isSelected // change selected
+        cell.isSelected = !cell.isSelected // change it back
         cell.startLoadingImage()
         let image : UIImage? = nil
-        cell.finishLoadingWithImage(image)
+        cell.finishLoading(with: image)
     }
     
 }

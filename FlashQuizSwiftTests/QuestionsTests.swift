@@ -19,14 +19,14 @@ class QuestionsTests: XCTestCase {
     }
 
     func testLoadingQuestions1() {
-        let fileURL: NSURL? = nil
-        let questions = Question.questionsWithFileURL(fileURL)
+        let fileURL: URL? = nil
+        let questions = Question.questions(withFileURL: fileURL)
         XCTAssertNil(questions)
     }
 
     func testLoadingQuestions() {
         let fileURL = AppConfiguration.questionsFileURL()
-        let questions = Question.questionsWithFileURL(fileURL)
+        let questions = Question.questions(withFileURL: fileURL)
         XCTAssertNotNil(questions, "A valid value is expected")
         if let questions = questions {
             XCTAssertTrue(questions.count > 0, "Count is exected to be greater than zero")
@@ -34,12 +34,12 @@ class QuestionsTests: XCTestCase {
     }
 
     func testLoadingQuestions3() {
-        let bundle = NSBundle(forClass: self.classForCoder)
-        let path = bundle.pathForResource("invalid", ofType: "json")
+        let bundle = Bundle(for: self.classForCoder)
+        let path = bundle.path(forResource: "invalid", ofType: "json")
         XCTAssertNotNil(path, "Path is required")
         if let path = path {
-            let fileURL = NSURL(string: path)
-            let questions = Question.questionsWithFileURL(fileURL)
+            let fileURL = URL(string: path)
+            let questions = Question.questions(withFileURL: fileURL)
             if let questions = questions {
                 XCTAssertNil(questions, "A nil value is expected")
             }
@@ -47,9 +47,9 @@ class QuestionsTests: XCTestCase {
     }
 
     func testLoadingPerformance() {
-        self.measureBlock { 
+        self.measure { 
             let fileURL = AppConfiguration.questionsFileURL()
-            let questions = Question.questionsWithFileURL(fileURL)
+            let questions = Question.questions(withFileURL: fileURL)
             XCTAssertNotNil(questions, "A valid value is expected")
         }
     }
